@@ -1,42 +1,64 @@
 {
-  "death":4,
+  "depth":2,
   "scene":
   [
     {
       "type":"SPHERE",
       "color": {
-        "red": 255,
-        "green": 139,
-        "blue": 24
+        "red": 205,
+        "green": 125,
+        "blue": 55
+      },
+      "pos":{
+        "x":0,
+        "y":0.4,
+        "z":4
+      },
+      "reflection_index": 0.0,
+      "refraction": 0.0,
+      "refraction_index": 0.0,
+      "diffuse": 0.0,
+      "radius": 0.50
+    },
+    {
+      "type":"SPHERE",
+      "color":{
+        "red":255,
+        "green":255,
+        "blue":255
       },
       "pos":{
         "x":0,
         "y":0,
-        "z":30
+        "z":2
       },
       "reflection_index": 0.0,
-      "diffuse": 0.0,
-      "radius": 1.00
+      "refraction": 0.6,
+      "refraction_index": 1.0,
+      "diffuse": 0.3,
+      "radius":0.2
     },
     {
       "comment":"sol",
       "type": "PLANE",
       "color": {
-        "red":200, 
+        "red":200,
         "green":255,
-        "blue":0
+        "blue":40
       },
       "pos": {
         "x":0,
-        "y":-10,
+        "y":-6,
         "z":0
       },
       "reflection_index": 0.0,
+      "refraction": 1.0,
+      "refraction_index": 0.0,
       "diffuse": 0.0,
       "normal": {
         "x":0,
-        "y":-40,
-        "z":5
+        "y":0.4,
+        "z":0
       }
     },
     {
@@ -49,36 +71,63 @@
       },
       "pos":{
         "x":0,
-        "y":10,
+        "y":6,
         "z":0
       },
       "reflection_index": 0.0,
+      "refraction": 0.0,
+      "refraction_index": 0.0,
       "diffuse": 0.0,
       "normal":{
         "x":0,
-        "y":40,
-        "z":5
+        "y":-0.4,
+        "z":0
+      }
+    },
+    {
+      "comment":"Mur Fond",
+      "type":"PLANE",
+      "color":{
+        "red":2,
+        "green":206,
+        "blue":206
+      },
+      "pos":{
+        "x":0,
+        "y":0,
+        "z":90
+      },
+      "reflection_index": 0.0,
+      "refraction": 0.0,
+      "refraction_index": 0.0,
+      "diffuse": 0.1,
+      "normal":{
+        "x":0,
+        "y":0,
+        "z":-1
       }
     },
     {
       "comment":"Mur Gauche",
       "type":"PLANE",
       "color":{
-        "red":200,
-        "green":155,
-        "blue":100
+        "red":206,
+        "green":206,
+        "blue":206
       },
       "pos":{
-        "x":-10,
+        "x":-6,
         "y":0,
         "z":0
       },
-      "reflection_index": 0.0,
+      "reflection_index": 0.9,
+      "refraction": 0.0,
+      "refraction_index": 0.0,
       "diffuse": 0.1,
       "normal":{
-        "x":-100,
+        "x":0.4,
         "y":0,
-        "z":5
+        "z":0
       }
     },
     {
@@ -86,37 +135,23 @@
       "type":"PLANE",
       "color":{
         "red":200,
-        "green":255,
+        "green":55,
         "blue":100
       },
       "pos":{
-        "x":10,
+        "x":6,
         "y":0,
         "z":0
       },
       "reflection_index": 0.0,
+      "refraction": 0.0,
+      "refraction_index": 0.0,
       "diffuse": 0.8,
       "normal":{
-        "x":100,
+        "x":-0.4,
         "y":0,
-        "z":5
+        "z":0
       }
-    },
-    {
-      "type":"SPHERE",
-      "color":{
-        "red":200,
-        "green":55,
-        "blue":20
-      },
-      "pos":{
-        "x":1,
-        "y":0,
-        "z":2
-      },
-      "reflection_index": 0.0,
-      "diffuse": 0.3,
-      "radius":0.20
     }
   ],
   "lights": [
@@ -128,60 +163,20 @@
         "blue": 255
       },
       "pos": {
-        "x": -3,
-        "y": -1.79233,
-        "z": 20
+        "x": 0,
+        "y": 0,
+        "z": 100
       },
       "reflection_index": 0.0,
+      "refraction": 0.0,
+      "refraction_index": 0.0,
       "diffuse": 0.0,
       "dir": {
         "x": 0,
         "y": 0,
         "z": 0
       },
-      "intensity": 0.4
-    },
-    {
-      "type": "SPOTLIGHT",
-      "color": {
-        "red": 255,
-        "green": 255,
-        "blue": 255
-      },
-      "pos": {
-        "x": 3,
-        "y": 2.688572153,
-        "z": 0
-      },
-      "reflection_index": 0.0,
-      "diffuse": 0.0,
-      "dir": {
-        "x": 1,
-        "y": 2,
-        "z": 0
-      },
-      "intensity": 0.9
-    }
-    {
-      "type": "SPOTLIGHT",
-      "color": {
-        "red": 255,
-        "green": 255,
-        "blue": 255
-      },
-      "pos": {
-        "x": -3,
-        "y": -1.79233,
-        "z": 0
-      },
-      "reflection_index": 0.0,
-      "diffuse": 0.0,
-      "dir": {
-        "x": 1,
-        "y": 2,
-        "z": 0
-      },
-      "intensity": 0.8
+      "intensity": 0.7
     }
   ]
 }

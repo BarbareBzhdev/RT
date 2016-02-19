@@ -6,7 +6,7 @@
 /*   By: mbarbari <mbarbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/29 12:32:17 by mbarbari          #+#    #+#             */
-/*   Updated: 2016/02/09 19:04:03 by barbare          ###   ########.fr       */
+/*   Updated: 2016/02/15 18:03:29 by barbare          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ struct				s_object
 	t_color3		color;
 	float			reflection_index;
 	float			diffuse;
+	float			refraction;
+	float			refraction_index;
 	char			stuff[128];
 };
 
