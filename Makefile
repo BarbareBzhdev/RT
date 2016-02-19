@@ -6,7 +6,7 @@
 #    By: rlambert <rlambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 11:25:08 by rlambert          #+#    #+#              #
-#    Updated: 2016/02/10 14:50:58 by barbare          ###   ########.fr        #
+#    Updated: 2016/02/17 10:36:58 by barbare          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ SRCS += src/framework_math/vector/fk_vcpy.c						\
 		src/framework_math/vector/fk_vsubstract.c				\
 		src/framework_math/vector/fk_vtranslation.c				\
 		src/framework_math/vector/fk_vunit.c					\
+		src/framework_math/vector/fk_vcheck.c					\
 		src/framework_math/vector/fk_cnew.c
 
 SRCS += src/framework_collision/fk_collision.c					\
@@ -56,30 +57,36 @@ SRCS += src/framework_light/fk_light.c							\
 		src/framework_light/fk_normal_sphere.c					\
 		src/framework_light/fk_normal_cylinder.c				\
 		src/framework_light/fk_normal_cone.c					\
-		src/framework_light/fk_normal_plan.c					\
+		src/framework_light/fk_normal_plane.c					\
 		src/framework_light/fk_luminance.c						\
 		src/framework_light/fk_shadow.c
 
 SRCS += src/framework_math/math/fk_isqrt.c
 
 SRCS +=	src/framework_shape/fk_intersect_sphere.c				\
-		src/framework_shape/fk_intersect_plan.c					\
+		src/framework_shape/fk_intersect_plane.c				\
 		src/framework_shape/fk_intersect_cylinder.c				\
-		src/framework_shape/fk_intersect_cone.c
+		src/framework_shape/fk_intersect_cone.c				\
+		src/framework_shape/fk_new_sphere.c						\
+		src/framework_shape/fk_new_plane.c						\
+		src/framework_shape/fk_new_cone.c						\
+		src/framework_shape/fk_new_cylinder.c					\
+		src/framework_shape/fk_new_spotlight.c					\
+
 
 INC_FILES = include/ft_env.h									\
 			include/parser.h									\
 			include/parser_union.h								\
 			include/framework_light/fk_light.h					\
 			include/framework_light/fk_normal_sphere.h			\
-			include/framework_light/fk_normal_plan.h			\
+			include/framework_light/fk_normal_plane.h			\
 			include/framework_light/fk_normal.h					\
 			include/framework_collision/fk_collision.h			\
 			include/framework_collision/fk_intersect.h			\
 			include/framework_shape/fk_listobj.h				\
 			include/framework_shape/fk_objects.h				\
 			include/framework_shape/fk_sphere.h					\
-			include/framework_shape/fk_plan.h					\
+			include/framework_shape/fk_plane.h					\
 			include/framework_shape/fk_cylinder.h				\
 			include/framework_shape/fk_cone.h					\
 			include/framework_shape/fk_ray.h					\

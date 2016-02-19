@@ -6,7 +6,7 @@
 /*   By: barbare <barbare@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/28 12:48:34 by mbarbari          #+#    #+#             */
-/*   Updated: 2016/02/10 14:52:16 by barbare          ###   ########.fr       */
+/*   Updated: 2016/02/15 19:45:49 by barbare          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ union			u_vec
 */
 t_vector3		vector_new(float x1, float y1, float z1);
 t_vector3		vector_cpy(t_vector3 u);
+char			vector_check(t_vector3 u, t_vector3 v);
 t_vector3		vector_unit(t_vector3 u);
 t_vertex3		vector_translation(t_vector3 u, t_vertex3 v);
 t_vector3		vector_mul(t_vector3 u, float r);
