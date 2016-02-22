@@ -98,7 +98,8 @@ t_ray	create_refraction(t_ray ray, t_intersect inter)
 		norm = vector_mul(inter.v_normal, -1);
 	cosi = -vector_dotproduct(norm, ray.dir);
 	k = 1.0f - eta * eta * (1.0f - cosi * cosi);
-	newray.dir = vector_sum(vector_mul(ray.dir, eta), vector_mul(norm, (eta * cosi - sqrtf(k))));
+	newray.dir = vector_mul(norm, (eta * cosi - sqrtf(k)));
+	newray.dir = vector_sum(vector_mul(ray.dir, eta), newray.dir);
 	newray.dir = vector_unit(newray.dir);
 	newray.pos = vector_sum(inter.pos, vector_mul(newray.dir, 1e-4));
 	return (newray);
@@ -123,7 +124,7 @@ t_color3	ft_trace_ray(t_object arr[16], t_object light[16], t_ray ray, int depth
 	inter.obj = NULL;
 	while (++i < 16 && arr[i].type != DEFAULT)
 		if (env.fctinter[arr[i].type](ray, arr + i, &dist))
-			if ((!inter.obj || dist < *dist_out) && dist > 1e-4f)
+			if ((!inter.obj || dist < *dist_out) && dist > 0.01f)
 			{
 				inter.obj = &arr[i];
 				*dist_out = dist;
