@@ -26,6 +26,8 @@ struct				s_object
 	t_color3		color;
 	float			reflection_index;
 	float			diffuse;
+	float			refraction;
+	float			refraction_index;
 	float			intensity;
 	float			specular;
 	t_bool			light;

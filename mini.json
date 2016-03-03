@@ -1,0 +1,72 @@
+{
+  "depth":2,
+  "scene":
+  [
+    {
+      "type":"SPHERE",
+      "color": {
+        "red": 205,
+        "green": 125,
+        "blue": 55
+      },
+      "pos":{
+        "x":0,
+        "y":0.4,
+        "z":4
+      },
+      "reflection_index": 0.0,
+      "refraction": 0.0,
+      "refraction_index": 0.7,
+      "diffuse": 0.0,
+      "radius": 0.50
+    },
+    {
+      "comment":"sol",
+      "type": "PLANE",
+      "color": {
+        "red":200,
+        "green":255,
+        "blue":40
+      },
+      "pos": {
+        "x":0,
+        "y":-6,
+        "z":0
+      },
+      "reflection_index": 0.0,
+      "refraction": 1.0,
+      "refraction_index": 0.0,
+      "diffuse": 0.0,
+      "normal": {
+        "x":0,
+        "y":0.4,
+        "z":0
+      }
+    }
+  ],
+  "lights": [
+    {
+      "type": "SPOTLIGHT",
+      "color": {
+        "red": 255,
+        "green": 255,
+        "blue": 255
+      },
+      "pos": {
+        "x": 0,
+        "y": 0,
+        "z": 100
+      },
+      "reflection_index": 0.0,
+      "refraction": 0.0,
+      "refraction_index": 0.0,
+      "diffuse": 0.0,
+      "dir": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "intensity": 0.7
+    }
+  ]
+}

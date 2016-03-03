@@ -14,6 +14,7 @@
 # define FT_SPHERE_H
 
 # include "libft.h"
+# include "parser.h"
 # include "framework_shape/fk_type.h"
 # include "framework_shape/fk_ray.h"
 # include "framework_collision/fk_intersect.h"
@@ -26,6 +27,8 @@ struct				s_sphere
 	t_type			type;
 	t_color3		color;
 	float			reflection_index;
+	float			refraction;
+	float			refraction_index;
 	float			diffuse;
 	float			intensity;
 	float			specular;
@@ -36,5 +39,6 @@ struct				s_sphere
 };
 
 t_bool			intersect_sphere(t_ray ray, t_sphere* obj, float *dist);
+void			new_sphere(t_value val, t_object *obj);
 
 #endif
