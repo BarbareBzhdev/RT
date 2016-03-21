@@ -6,7 +6,7 @@
 #    By: rlambert <rlambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 11:25:08 by rlambert          #+#    #+#              #
-#    Updated: 2016/02/10 14:50:58 by barbare          ###   ########.fr        #
+#    Updated: 2016/03/21 10:03:05 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,11 @@ SRCS += src/framework_math/math/fk_isqrt.c
 SRCS +=	src/framework_shape/fk_intersect_sphere.c				\
 		src/framework_shape/fk_intersect_plan.c					\
 		src/framework_shape/fk_intersect_cylinder.c				\
-		src/framework_shape/fk_intersect_cone.c
+		src/framework_shape/fk_intersect_cone.c					\
+		src/framework_shape/fk_new_cone.c						\
+		src/framework_shape/fk_new_cylinder.c					\
+		src/framework_shape/fk_new_plane.c						\
+		src/framework_shape/fk_new_sphere.c
 
 INC_FILES = include/ft_env.h									\
 			include/parser.h									\

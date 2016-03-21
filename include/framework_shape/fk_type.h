@@ -19,7 +19,6 @@ typedef enum		e_type
 	PLANE,
 	CYLINDER,
 	CONE,
-	SPOTLIGHT,
 	DEFAULT
 }					t_type;
 

@@ -6,7 +6,7 @@
 /*   By: rlambert <rlambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/27 21:03:28 by roblabla          #+#    #+#             */
-/*   Updated: 2016/02/09 13:46:41 by barbare          ###   ########.fr       */
+/*   Updated: 2016/03/21 10:59:12 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,13 @@ int		rt_expose_hook(t_env *env)
 /*
 ** TODO : Check segfault
 */
+static int key_press(int key, t_env *env)
+{
+	if (key == 53 || key == 65307)
+		exit(0);
+	return (0);
+}
+
 int		main(int argc, char **argv)
 {
 	t_env	env;
@@ -51,6 +58,7 @@ int		main(int argc, char **argv)
 	env.dir_camera = (t_vector3) { .x = 0, .y = 0, .z = 1 };
 	ft_setup_inter(env.fctinter);
 	ft_setup_normal(env.fctnormal);
+	mlx_hook(env.win, 2, (1L << 0), &key_press, &env);
 	mlx_expose_hook(env.win, rt_expose_hook, &env);
 	mlx_loop(env.mlx);
 	return (0);

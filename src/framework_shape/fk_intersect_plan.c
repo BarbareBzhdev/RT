@@ -6,7 +6,7 @@
 /*   By: mbarbari <mbarbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 20:35:03 by mbarbari          #+#    #+#             */
-/*   Updated: 2016/01/27 15:07:14 by barbare          ###   ########.fr       */
+/*   Updated: 2016/03/21 10:57:41 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ t_bool			intersect_plan(t_ray ray, t_plan *plan, float *t)
 	t_vector3	pos;
 
 	pos = vector_substract(ray.pos, plan->pos);
-	m = vector_dotproduct(plan->normal, pos);
-	d = vector_dotproduct(plan->normal, ray.dir);
+	m = vector_dotproduct(plan->dir, pos);
+	d = vector_dotproduct(plan->dir, ray.dir);
 	*t = -m / d;
 	if (*t < 0.)
 		return (FALSE);

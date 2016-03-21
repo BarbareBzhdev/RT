@@ -30,7 +30,11 @@ int			parse_boolean(char **json)
 {
 	int boolean;
 
-	boolean = ft_strncmp(*json, "true", 4) ? 1 : 0;
+	boolean = ft_strncmp(*json, "true", 4) == 0 ? 1 : 0;
+	if (boolean == 1)
+		*json += 4;
+	else
+		*json += 5;
 	return (boolean);
 }
 

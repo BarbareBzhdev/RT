@@ -10,12 +10,12 @@
         "blue": 24
       },
       "pos":{
-        "x":0,
+        "x":2,
         "y":0,
         "z":30
       },
       "reflection_index": 0.0,
-      "diffuse": 0.0,
+      "diffuse": 1.0,
       "radius": 1.00
     },
     {
@@ -115,7 +115,7 @@
         "z":2
       },
       "reflection_index": 0.0,
-      "diffuse": 0.3,
+      "diffuse": 1.0,
       "radius":0.20
     }
   ],
@@ -128,60 +128,39 @@
         "blue": 255
       },
       "pos": {
-        "x": -3,
-        "y": -1.79233,
-        "z": 20
+        "x": -0.3,
+        "y": 0,
+        "z": 3
       },
-      "reflection_index": 0.0,
+      "reflection_index": 0.6,
       "diffuse": 0.0,
       "dir": {
         "x": 0,
         "y": 0,
         "z": 0
       },
-      "intensity": 0.4
-    },
-    {
-      "type": "SPOTLIGHT",
-      "color": {
-        "red": 255,
-        "green": 255,
-        "blue": 255
-      },
-      "pos": {
-        "x": 3,
-        "y": 2.688572153,
-        "z": 0
-      },
-      "reflection_index": 0.0,
-      "diffuse": 0.0,
-      "dir": {
-        "x": 1,
-        "y": 2,
-        "z": 0
-      },
-      "intensity": 0.9
+      "intensity":0.8
     }
     {
       "type": "SPOTLIGHT",
       "color": {
-        "red": 255,
-        "green": 255,
-        "blue": 255
+        "red":255,
+        "green":255,
+        "blue":255
       },
       "pos": {
-        "x": -3,
-        "y": -1.79233,
-        "z": 0
+        "x":0,
+        "y":0,
+        "z":0
       },
-      "reflection_index": 0.0,
-      "diffuse": 0.0,
+      "reflection_index":0.1,
+      "diffuse":0.2,
       "dir": {
-        "x": 1,
-        "y": 2,
-        "z": 0
+        "x":1,
+        "y":2,
+        "z":0
       },
-      "intensity": 0.8
+      "intensity":1.0
     }
   ]
 }

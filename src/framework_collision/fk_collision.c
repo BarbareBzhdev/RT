@@ -6,7 +6,7 @@
 /*   By: mbarbari <mbarbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/01 20:34:17 by mbarbari          #+#    #+#             */
-/*   Updated: 2016/02/15 16:18:31 by barbare          ###   ########.fr       */
+/*   Updated: 2016/03/21 10:01:10 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,96 +27,69 @@
 #define VECTOR_UP ((t_vector3) { .x = 0, .y = 1, .z = 0 })
 #define COLOR_ZERO ((t_color3) { .r = 0, .g = 0, .b = 0 })
 
-int	g_death;
+int	g_depth;
 
 
 static void		fill_arr(t_value val, int idx, t_object *data)
 {
 	if (ft_strequ(json_get(val.data.obj, "type").data.s, "SPHERE"))
-	{
-		ft_memcpy(data + idx, &(t_sphere){
-			SPHERE,
-			color_new(json_get(val.data.obj, "color.red").data.number, json_get(val.data.obj, "color.green").data.number, json_get(val.data.obj, "color.blue").data.number),
-			json_get(val.data.obj, "reflection_index").data.number,
-			json_get(val.data.obj, "diffuse").data.number,
-			vector_new(json_get(val.data.obj, "pos.x").data.number, json_get(val.data.obj, "pos.y").data.number, json_get(val.data.obj, "pos.z").data.number),
-			json_get(val.data.obj, "radius").data.number
-		}, sizeof(t_sphere));
-	}
-	if (ft_strequ(json_get(val.data.obj, "type").data.s, "PLANE"))
-	{
-		ft_memcpy(data + idx, &(t_plan){
-			PLANE,
-			color_new(json_get(val.data.obj, "color.red").data.number, json_get(val.data.obj, "color.green").data.number, json_get(val.data.obj, "color.blue").data.number),
-			json_get(val.data.obj, "reflection_index").data.number,
-			json_get(val.data.obj, "diffuse").data.number,
-			vector_new(json_get(val.data.obj, "pos.x").data.number, json_get(val.data.obj, "pos.y").data.number, json_get(val.data.obj, "pos.z").data.number),
-			vector_unit(vector_new(json_get(val.data.obj, "normal.x").data.number, json_get(val.data.obj, "normal.y").data.number, json_get(val.data.obj, "normal.z").data.number))
-		}, sizeof(t_plan));
-	}
-	if (ft_strequ(json_get(val.data.obj, "type").data.s, "CYLINDER"))
-	{
-		ft_memcpy(data + idx, &(t_cylinder){
-			CYLINDER,
-			color_new(json_get(val.data.obj, "color.red").data.number, json_get(val.data.obj, "color.green").data.number, json_get(val.data.obj, "color.blue").data.number),
-			json_get(val.data.obj, "reflection_index").data.number,
-			json_get(val.data.obj, "diffuse").data.number,
-			vector_new(json_get(val.data.obj, "pos.x").data.number, json_get(val.data.obj, "pos.y").data.number, json_get(val.data.obj, "pos.z").data.number),
-			vector_unit(vector_new(json_get(val.data.obj, "normal.x").data.number, json_get(val.data.obj, "normal.y").data.number, json_get(val.data.obj, "normal.z").data.number)),
-			json_get(val.data.obj, "radius").data.number
-		}, sizeof(t_cylinder));
-	}
-	if (ft_strequ(json_get(val.data.obj, "type").data.s, "CONE"))
-	{
-		ft_memcpy(data + idx, &(t_cone){
-			CONE,
-			color_new(json_get(val.data.obj, "color.red").data.number, json_get(val.data.obj, "color.green").data.number, json_get(val.data.obj, "color.blue").data.number),
-			json_get(val.data.obj, "reflection_index").data.number,
-			json_get(val.data.obj, "diffuse").data.number,
-			vector_new(json_get(val.data.obj, "pos.x").data.number, json_get(val.data.obj, "pos.y").data.number, json_get(val.data.obj, "pos.z").data.number),
-			vector_unit(vector_new(json_get(val.data.obj, "normal.x").data.number, json_get(val.data.obj, "normal.y").data.number, json_get(val.data.obj, "normal.z").data.number)),
-			json_get(val.data.obj, "radius").data.number,
-			0
-		}, sizeof(t_cone));
-	}
-	if (ft_strequ(json_get(val.data.obj, "type").data.s, "SPOTLIGHT"))
-	{
-		ft_memcpy(data + idx, &(t_spotlight){
-			SPOTLIGHT,
-			color_new(json_get(val.data.obj, "color.red").data.number, json_get(val.data.obj, "color.green").data.number, json_get(val.data.obj, "color.blue").data.number),
-			json_get(val.data.obj, "reflection_index").data.number,
-			json_get(val.data.obj, "diffuse").data.number,
-			vector_new(json_get(val.data.obj, "pos.x").data.number, json_get(val.data.obj, "pos.y").data.number, json_get(val.data.obj, "pos.z").data.number),
-			vector_new(json_get(val.data.obj, "dir.x").data.number, json_get(val.data.obj, "dir.y").data.number, json_get(val.data.obj, "dir.z").data.number),
-			json_get(val.data.obj, "intensity").data.number
-		}, sizeof(t_spotlight));
-	}
+		new_sphere(val, &data[idx]);
+	else if (ft_strequ(json_get(val.data.obj, "type").data.s, "PLANE"))
+		new_plane(val, &data[idx]);
+	else if (ft_strequ(json_get(val.data.obj, "type").data.s, "CYLINDER"))
+		new_cylinder(val, &data[idx]);
+	else if (ft_strequ(json_get(val.data.obj, "type").data.s, "CONE"))
+		new_cone(val, &data[idx]);
 }
 
-static	void	create_scene(t_value val, t_object *arr, t_object *light)
+static	void	create_scene(t_value val, t_object *arr/*, t_object *light*/)
 {
 	json_foreach_arr(json_get(val.data.obj, "scene").data.arr, &fill_arr, arr);
 	arr[json_arr_length(json_get(val.data.obj, "scene").data.arr)].type = DEFAULT;
-	json_foreach_arr(json_get(val.data.obj, "lights").data.arr, &fill_arr, light);
-	light[json_arr_length(json_get(val.data.obj, "lights").data.arr)].type = DEFAULT;
-	g_death = (int)json_get(val.data.obj, "death").data.number;
+	arr[json_arr_length(json_get(val.data.obj, "scene").data.arr) + 1].type = DEFAULT;
+	g_depth = (int)json_get(val.data.obj, "depth").data.number;
 }
 
-static	t_color3	getfinalcolor(t_object *light, t_intersect inter)
+static	t_color3	getfinalcolor(t_object *arr, t_intersect inter, t_env env)
 {
 	t_color3			color;
-	unsigned int		i;
+	t_color3			color_tmp;
+	float				dist[2];
+	t_ray 				newray;
+	float				shade;
+	t_vector3			l;
 
-	color = color_new(0., 0., 0.);
+	int					i;
+	int 				k;
+	int 				a;
+
+	color_tmp = color_new(0, 0, 0);
+	a = 0;
 	if (inter.obj)
 	{
-		i = 0;
-		while(light[i].type != DEFAULT)
+		i = -1;
+		while(arr[i].type != DEFAULT)
 		{
-			color = vector_sum(iter_light(inter, (t_spotlight *)&light[i]), color);
+			shade = 1.0;
+			if (arr[i].light == TRUE)
+			{
+				l = vector_substract(arr[i].pos, inter.pos);
+				dist[0] = vector_magnitude(l);
+				newray.pos = vector_substract(inter.pos, vector_mul(inter.v_normal, 1e-4f));
+				newray.dir = vector_unit(l);
+				k = -1;
+				while (++k < 16 && arr[k].type != DEFAULT)
+					if (env.fctinter[arr[k].type](newray, arr + k, &dist[1]))
+					{
+						if (arr[k].light != TRUE && dist[1] <= dist[0])
+							shade -= 0.3;
+					}
+				color_tmp = vector_sum(color_tmp, iter_light(inter, &arr[i], shade));
+				++a;
+			}
 			++i;
 		}
-		return (vector_div(color, i));
+		return (vector_div(color_tmp, a));
 	}
 	return (color_new(17, 25, 37));
 }
@@ -133,7 +106,7 @@ t_ray	create_reflection(t_ray ray, t_intersect inter)
 	return (newray);
 }
 
-t_color3	ft_trace_ray(t_object arr[16], t_object light[16], t_ray ray, int depth, float *dist_out, t_env env)
+t_color3	ft_trace_ray(t_object arr[16],/* t_object light[16],*/ t_ray ray, int depth, float *dist_out, t_env env)
 {
 	t_intersect		inter;
 	t_color3		outcolor;
@@ -159,10 +132,11 @@ t_color3	ft_trace_ray(t_object arr[16], t_object light[16], t_ray ray, int depth
 	{
 		inter.pos = create_intersect(ray, *dist_out);
 		inter.v_normal = env.fctnormal[inter.obj->type](ray, inter.pos, inter.obj);
-		outcolor = getfinalcolor(light, inter);
-		if (inter.obj->reflection_index != 0.0 && depth < g_death)
+		inter.ray = ray;
+		outcolor = getfinalcolor(arr, inter, env);
+		if (inter.obj->reflection_index != 0.0 && depth < g_depth)
 		{
-			refl_color = ft_trace_ray(arr, light, create_reflection(ray, inter), depth + 1, NULL, env);
+			refl_color = ft_trace_ray(arr, create_reflection(ray, inter), depth + 1, NULL, env);
 			outcolor = vector_sum(outcolor, vector_mul(refl_color, inter.obj->reflection_index));
 		}
 	}
@@ -194,7 +168,7 @@ void		ft_render2(t_env env)
 
 	ft_bzero(arr, sizeof(t_object) * 16);
 	ft_bzero(light, sizeof(t_object) * 16);
-	create_scene(parser(env.file), arr, light);
+	create_scene(parser(env.file), arr/*, light*/);
 	y = 0;
 	while (y < env.resolution.height)
 	{
@@ -206,7 +180,7 @@ void		ft_render2(t_env env)
 			ray.dir.y = (1. - 2. * (y * invH)) * angle;
 			ray.dir.z = 1;
 			ray.dir = vector_unit(ray.dir);
-			rgba = ft_trace_ray(arr, light, ray, 0, NULL, env);
+			rgba = ft_trace_ray(arr, /*light,*/ ray, 0, NULL, env);
 			ft_put_pixel_to_image(env.img, x, y, rgba);
 			x++;
 		}

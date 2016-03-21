@@ -22,7 +22,7 @@
 ** fk_collision.c
 ** ****************************************************************************
 */
-t_color3		ft_trace_ray(t_object *arr, t_object *light, t_ray ray, int depth, float *dist_out, t_env env);
+t_color3		ft_trace_ray(t_object *arr, t_ray ray, int depth, float *dist_out, t_env env);
 void		ft_render(t_env env);
 
 /*

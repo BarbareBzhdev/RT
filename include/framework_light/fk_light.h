@@ -15,6 +15,7 @@
 
 # include "framework_shape/fk_type.h"
 # include "framework_math/fk_vector.h"
+# include "framework_shape/fk_listobj.h"
 # include "framework_collision/fk_collision.h"
 
 typedef struct s_spotlight		t_spotlight;
@@ -27,7 +28,7 @@ struct				s_spotlight
 	t_vertex3		pos;
 	t_vector3		dir;
 	float			intensity;
+	float			radius;
 };
-
-t_color3				iter_light(t_intersect inter, t_spotlight *light);
+t_color3				iter_light(t_intersect inter, t_object *light, float shade);
 #endif
