@@ -6,7 +6,7 @@
 /*   By: mbarbari <mbarbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/22 16:40:50 by mbarbari          #+#    #+#             */
-/*   Updated: 2016/03/21 10:51:16 by root             ###   ########.fr       */
+/*   Updated: 2016/03/22 09:41:08 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct		s_cylinder t_cylinder;
 struct				s_cylinder
 {
 	t_type			type;
-	t_color3		color;
+	t_material		mat;
 	float			reflection_index;
 	float			refraction_index;
 	float			ambient;

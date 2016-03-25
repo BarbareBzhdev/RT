@@ -6,7 +6,7 @@
 /*   By: barbare </var/spool/mail/barbare>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 09:47:48 by barbare           #+#    #+#             */
-/*   Updated: 2016/03/21 10:55:13 by root             ###   ########.fr       */
+/*   Updated: 2016/03/23 14:20:05 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,16 @@ void		new_plane(t_value val, t_object *data)
 {
 	ft_memcpy(data, &(t_plan){
 		PLANE,
-		color_new(json_get(val.data.obj, "color.red").data.number,
-				json_get(val.data.obj, "color.green").data.number,
-				json_get(val.data.obj, "color.blue").data.number),
+		material_new(color_new(json_get(val.data.obj, "color1.red").data.number,
+					json_get(val.data.obj, "color1.green").data.number,
+					json_get(val.data.obj, "color1.blue").data.number),
+		color_new(json_get(val.data.obj, "color2.red").data.number,
+					json_get(val.data.obj, "color2.green").data.number,
+					json_get(val.data.obj, "color2.blue").data.number),
+		color_new(json_get(val.data.obj, "color3.red").data.number,
+					json_get(val.data.obj, "color3.green").data.number,
+					json_get(val.data.obj, "color3.blue").data.number),
+		json_get(val.data.obj, "texture").data.s),
 		json_get(val.data.obj, "reflection_index").data.number,
 		json_get(val.data.obj, "refraction_index").data.number,
 		json_get(val.data.obj, "ambient").data.number,

@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fk_vcolor.c                                        :+:      :+:    :+:   */
+/*   fk_material.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: barbare <barbare@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/09 11:33:40 by barbare           #+#    #+#             */
-/*   Updated: 2016/03/23 14:16:32 by root             ###   ########.fr       */
+/*   Created: 2016/03/23 14:17:10 by root              #+#    #+#             */
+/*   Updated: 2016/03/23 14:17:54 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "framework_math/fk_vector.h"
 #include "framework_shape/fk_objects.h"
 
-t_color3		color_new(float r, float g, float b)
+t_material		material_new(t_color3 c1, t_color3 c2, t_color3 c3, char *t)
 {
-	t_color3	color;
-	color = (t_color3) {.r = (r / 255.), .g = (g / 255.), .b = (b / 255.)};
-	return (color);
+	return ((t_material) {c1, c2, c3, t});
 }

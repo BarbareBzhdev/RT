@@ -6,7 +6,7 @@
 #    By: rlambert <rlambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 11:25:08 by rlambert          #+#    #+#              #
-#    Updated: 2016/03/21 10:03:05 by root             ###   ########.fr        #
+#    Updated: 2016/03/23 14:18:33 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,14 @@ SRCS += src/framework_math/vector/fk_vcpy.c						\
 		src/framework_math/vector/fk_cnew.c
 
 SRCS += src/framework_collision/fk_collision.c					\
+		src/framework_collision/fk_createscene.c				\
+		src/framework_collision/fk_reflection.c					\
 		src/framework_collision/fk_intersect.c
+
+SRCS += src/framework_texture/fk_checkerboard.c					\
+		src/framework_texture/fk_perlin.c						\
+		src/framework_texture/fk_material.c						\
+		src/framework_texture/fk_color.c
 
 SRCS += src/framework_light/fk_light.c							\
 		src/framework_light/fk_normal_sphere.c					\

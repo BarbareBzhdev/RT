@@ -4,41 +4,62 @@
   [
     {
       "type":"SPHERE",
-      "color": {
+      "color1": {
         "red": 255,
+        "green": 139,
+        "blue": 24
+      },
+      "color2": {
+        "red": 55,
+        "green": 139,
+        "blue": 214
+      },
+      "color3": {
+        "red": 0,
         "green": 139,
         "blue": 24
       },
       "pos":{
         "x":0,
-        "y":0,
-        "z":30
+        "y":2,
+        "z":10
       },
       "dir": {
         "x": 0,
         "y": 0,
         "z": 0
       },
-      "reflection_index": 0.0,
+      "reflection_index": 0.5,
       "refraction_index": 0.0,
       "ambient": 0.0,
       "diffuse": 0.0,
       "intensity":0.0,
       "specular":0.5,
       "light": false,
-      "radius": 1.00
+      "radius": 1.00,
+      "texture": "perlin"
     },
     {
       "comment":"sol",
       "type": "PLANE",
-      "color": {
+      "color1": {
         "red":200,
         "green":255,
         "blue":0
       },
+      "color2": {
+        "red":200,
+        "green":55,
+        "blue":100
+      },
+      "color3": {
+        "red":200,
+        "green":55,
+        "blue":0
+      },
       "pos": {
         "x":0,
-        "y":-10,
+        "y":-1,
         "z":0
       },
       "reflection_index": 0.0,
@@ -50,25 +71,36 @@
       "specular":0.5,
       "dir": {
         "x":0,
-        "y":-40,
-        "z":5
-      }
+        "y":-1,
+        "z":0
+      },
+      "texture": "checkerboard"
 	},
   {
       "type": "SPHERE",
-      "color": {
+      "color1": {
+        "red": 255,
+        "green": 255,
+        "blue": 255
+      },
+      "color2": {
+        "red": 255,
+        "green": 255,
+        "blue": 255
+      },
+      "color3": {
         "red": 255,
         "green": 255,
         "blue": 255
       },
       "pos": {
         "x": 1.2,
-        "y": 2.5,
-        "z": 30
+        "y": 5.5,
+        "z": 10
       },
       "reflection_index": 0.0,
       "refraction_index": 0.0,
-      "ambient": 0.0,
+      "ambient": 0.5,
       "diffuse": 0.8,
       "specular":0.5,
       "light": true,
@@ -77,24 +109,34 @@
         "y": 0,
         "z": 0
       },
-      "radius":0.50,
-      "intensity":0.8
+      "radius":0.00,
+      "texture": "none"
     },
     {
       "type": "SPHERE",
-      "color": {
+      "color1": {
+        "red": 255,
+        "green": 255,
+        "blue": 255
+      },
+      "color2": {
+        "red": 255,
+        "green": 255,
+        "blue": 255
+      },
+      "color3": {
         "red": 255,
         "green": 255,
         "blue": 255
       },
       "pos": {
         "x": -1.2,
-        "y": 2.5,
-        "z": 30
+        "y": 5.5,
+        "z": 10
       },
       "reflection_index": 0.0,
       "refraction_index": 0.0,
-      "ambient": 0.0,
+      "ambient": 0.4,
       "diffuse": 0.8,
       "specular":0.5,
       "light": true,
@@ -103,8 +145,44 @@
         "y": 0,
         "z": 0
       },
-      "radius":0.50,
-      "intensity":0.8
+      "radius":0.00,
+      "texture": "none"
+    },
+    {
+      "type": "SPHERE",
+      "color1": {
+        "red": 255,
+        "green": 255,
+        "blue": 255
+      },
+      "color2": {
+        "red": 255,
+        "green": 255,
+        "blue": 255
+      },
+      "color3": {
+        "red": 255,
+        "green": 255,
+        "blue": 255
+      },
+      "pos": {
+        "x": -1.2,
+        "y": 0.0,
+        "z": 0
+      },
+      "reflection_index": 0.0,
+      "refraction_index": 0.0,
+      "ambient": 0.4,
+      "diffuse": 0.8,
+      "specular":0.5,
+      "light": true,
+      "dir": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "radius":0.00,
+      "texture": "none"
     }
   ]
 }

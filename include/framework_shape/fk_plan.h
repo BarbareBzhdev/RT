@@ -6,7 +6,7 @@
 /*   By: mbarbari <mbarbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 20:42:15 by mbarbari          #+#    #+#             */
-/*   Updated: 2016/03/21 10:56:48 by root             ###   ########.fr       */
+/*   Updated: 2016/03/22 09:41:34 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct		s_plan t_plan;
 struct				s_plan
 {
 	t_type			type;
-	t_color3		color;
+	t_material		mat;
 	float			reflection_index;
 	float			refraction_index;
 	float			ambient;

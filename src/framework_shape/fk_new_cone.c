@@ -6,7 +6,7 @@
 /*   By: barbare </var/spool/mail/barbare>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 09:51:05 by barbare           #+#    #+#             */
-/*   Updated: 2016/02/17 10:17:34 by barbare          ###   ########.fr       */
+/*   Updated: 2016/03/23 14:20:24 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,17 @@
 
 void		new_cone(t_value val, t_object *data)
 {
-	ft_memcpy(data, &(t_cone){
-		CONE,
-		color_new(json_get(val.data.obj, "color.red").data.number,
-					json_get(val.data.obj, "color.green").data.number,
-					json_get(val.data.obj, "color.blue").data.number),
+	ft_memcpy(data, &(t_cone){ CONE,
+		material_new(color_new(json_get(val.data.obj, "color1.red").data.number,
+					json_get(val.data.obj, "color1.green").data.number,
+					json_get(val.data.obj, "color1.blue").data.number),
+		color_new(json_get(val.data.obj, "color2.red").data.number,
+					json_get(val.data.obj, "color2.green").data.number,
+					json_get(val.data.obj, "color2.blue").data.number),
+		color_new(json_get(val.data.obj, "color3.red").data.number,
+					json_get(val.data.obj, "color3.green").data.number,
+					json_get(val.data.obj, "color3.blue").data.number),
+		json_get(val.data.obj, "texture").data.s),
 		json_get(val.data.obj, "reflection_index").data.number,
 		json_get(val.data.obj, "refraction_index").data.number,
 		json_get(val.data.obj, "ambient").data.number,
@@ -32,7 +38,6 @@ void		new_cone(t_value val, t_object *data)
 		vector_unit(vector_new(json_get(val.data.obj, "dir.x").data.number,
 						json_get(val.data.obj, "dir.y").data.number,
 						json_get(val.data.obj, "dir.z").data.number)),
-		json_get(val.data.obj, "radius").data.number,
-		0
+		json_get(val.data.obj, "radius").data.number, 0
 	}, sizeof(t_cone));
 }
