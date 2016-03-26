@@ -21,23 +21,28 @@
       },
       "pos":{
         "x":0,
-        "y":2,
-        "z":10
+        "y":0.1,
+        "z":6
       },
       "dir": {
         "x": 0,
         "y": 0,
         "z": 0
       },
-      "reflection_index": 0.5,
+      "reflection_index": 0.05,
       "refraction_index": 0.0,
       "ambient": 0.0,
       "diffuse": 0.0,
       "intensity":0.0,
       "specular":0.5,
       "light": false,
-      "radius": 1.00,
-      "texture": "perlin"
+      "radius": 0.60,
+      "texture": "perlin",
+      "datatexture": {
+        "v0": 0.085,
+        "v1": 0.18,
+        "v2": 0.22
+      }
     },
     {
       "comment":"sol",
@@ -74,7 +79,12 @@
         "y":-1,
         "z":0
       },
-      "texture": "checkerboard"
+      "texture": "checkerboard",
+      "datatexture": {
+        "v0": -2,
+        "v1": 1,
+        "v2": 2
+      }
 	},
   {
       "type": "SPHERE",
@@ -110,7 +120,12 @@
         "z": 0
       },
       "radius":0.00,
-      "texture": "none"
+      "texture": "none",
+      "datatexture": {
+        "v0": -2,
+        "v1": 1,
+        "v2": 2
+      }
     },
     {
       "type": "SPHERE",
@@ -146,7 +161,12 @@
         "z": 0
       },
       "radius":0.00,
-      "texture": "none"
+      "texture": "none",
+      "datatexture": {
+        "v0": -2,
+        "v1": 1,
+        "v2": 2
+      }
     },
     {
       "type": "SPHERE",
@@ -182,7 +202,12 @@
         "z": 0
       },
       "radius":0.00,
-      "texture": "none"
+      "texture": "none",
+      "datatexture": {
+        "v0": -2,
+        "v1": 1,
+        "v2": 2
+      }
     }
   ]
 }

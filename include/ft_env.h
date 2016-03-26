@@ -6,7 +6,7 @@
 /*   By: mbarbari <mbarbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/01 16:09:24 by mbarbari          #+#    #+#             */
-/*   Updated: 2016/01/27 18:04:01 by roblabla         ###   ########.fr       */
+/*   Updated: 2016/03/26 16:48:17 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,15 @@ struct				s_env
 	t_img			img;
 	t_resolution	resolution;
 	int				fov;
+	int				nb_thread;
 	char			*file;
+	int				xy[2];
+	float			invh;
+	float			invw;
+	float			ratio;
+	float			angle;
+	t_object		arr[16];
 	t_vertex3		pos_absolute_camera;
-	t_vector3		dir_camera;
 	t_fctinter		fctinter[DEFAULT];
 	t_fctnormal		fctnormal[DEFAULT];
 };

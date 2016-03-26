@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 13:54:35 by root              #+#    #+#             */
-/*   Updated: 2016/03/23 14:19:09 by root             ###   ########.fr       */
+/*   Updated: 2016/03/25 17:30:48 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,9 +110,9 @@ t_color3		fk_perlin(t_intersect inter)
 	float			perlin;
 	float			v[3];
 
-	v[0] = -0.2;
-	v[1] = 0.1;
-	v[2] = 0.9;
+	v[0] = inter.obj->mat.v0;
+	v[1] = inter.obj->mat.v1;
+	v[2] = inter.obj->mat.v2;
 	perlin = fabs(perlin_noise(inter.pos.x, inter.pos.y, inter.pos.z));
 	if (perlin < v[0])
 		return (inter.obj->mat.color1);

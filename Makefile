@@ -6,7 +6,7 @@
 #    By: rlambert <rlambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 11:25:08 by rlambert          #+#    #+#              #
-#    Updated: 2016/03/23 14:18:33 by root             ###   ########.fr        #
+#    Updated: 2016/03/26 16:58:24 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ else
 endif
 
 CFLAGS += -Wall -Wextra -Werror
-CFLAGS = -Wall -Wextra
+CFLAGS = -Wall -Wextra -D_REENTRANT
 
 SRCS =	src/main.c 												\
 		src/ft_env.c
@@ -52,6 +52,7 @@ SRCS += src/framework_math/vector/fk_vcpy.c						\
 SRCS += src/framework_collision/fk_collision.c					\
 		src/framework_collision/fk_createscene.c				\
 		src/framework_collision/fk_reflection.c					\
+		src/framework_collision/fk_antialiasing.c				\
 		src/framework_collision/fk_intersect.c
 
 SRCS += src/framework_texture/fk_checkerboard.c					\
@@ -73,6 +74,7 @@ SRCS +=	src/framework_shape/fk_intersect_sphere.c				\
 		src/framework_shape/fk_intersect_plan.c					\
 		src/framework_shape/fk_intersect_cylinder.c				\
 		src/framework_shape/fk_intersect_cone.c					\
+		src/framework_shape/fk_newelement.c						\
 		src/framework_shape/fk_new_cone.c						\
 		src/framework_shape/fk_new_cylinder.c					\
 		src/framework_shape/fk_new_plane.c						\
@@ -88,6 +90,7 @@ INC_FILES = include/ft_env.h									\
 			include/framework_collision/fk_collision.h			\
 			include/framework_collision/fk_intersect.h			\
 			include/framework_shape/fk_listobj.h				\
+			include/framework_shape/fk_newelement.h				\
 			include/framework_shape/fk_objects.h				\
 			include/framework_shape/fk_sphere.h					\
 			include/framework_shape/fk_plan.h					\
@@ -109,7 +112,7 @@ CP = cp
 
 RM = rm -f
 
-LDFLAGS += -L$(PRINTF_PATH) -lftprintf -L$(MLX_PATH) -lmlx -L$(LIBFT_PATH) -lft
+LDFLAGS += -L$(PRINTF_PATH) -lftprintf -L$(MLX_PATH) -lmlx -L$(LIBFT_PATH) -lft -lpthread -lm
 
 ifeq ($(shell uname), Linux)
 	LDFLAGS += $(shell pkg-config xext x11 --libs)
@@ -117,7 +120,6 @@ else
 	LDFLAGS += -framework OpenGL -framework AppKit
 endif
 
-LDFLAGS += -L$(PRINTF_PATH) -lftprintf -L$(MLX_PATH) -lmlx -lm
 all: $(NAME)
 
 MKDIR ?= mkdir

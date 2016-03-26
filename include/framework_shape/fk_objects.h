@@ -6,7 +6,7 @@
 /*   By: mbarbari <mbarbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/29 12:32:17 by mbarbari          #+#    #+#             */
-/*   Updated: 2016/03/23 14:17:57 by root             ###   ########.fr       */
+/*   Updated: 2016/03/25 15:42:24 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ struct				s_material
 	t_color3		color2;
 	t_color3		color3;
 	char			*texture;
+	float			v0;
+	float			v1;
+	float			v2;
 };
 
 struct				s_object

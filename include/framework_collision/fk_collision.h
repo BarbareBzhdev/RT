@@ -6,7 +6,7 @@
 /*   By: mbarbari <mbarbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/28 12:45:47 by mbarbari          #+#    #+#             */
-/*   Updated: 2016/03/23 13:50:25 by root             ###   ########.fr       */
+/*   Updated: 2016/03/25 17:26:55 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int	g_depth;
 ** ****************************************************************************
 */
 t_color3	ft_trace_ray(t_object *arr, t_ray ray, int depth, t_env env);
-void		ft_render(t_env env, float a, float b);
+void		ft_render(t_env env);
+t_ray		ray_calc(t_env env, float offsetx, float offsety);
 
 
 /*
@@ -52,4 +53,11 @@ void		create_scene(t_value val, t_object *arr);
 ** ****************************************************************************
 */
 t_ray		create_reflection(t_ray ray, t_intersect inter);
+
+/*
+** ****************************************************************************
+** fk_antialiasing.c
+** ****************************************************************************
+*/
+t_color3	antialiasing(t_object *arr, t_env env, t_color3 color, int n);
 #endif

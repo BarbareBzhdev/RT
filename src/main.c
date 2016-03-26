@@ -6,24 +6,29 @@
 /*   By: rlambert <rlambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/27 21:03:28 by roblabla          #+#    #+#             */
-/*   Updated: 2016/03/25 13:35:51 by root             ###   ########.fr       */
+/*   Updated: 2016/03/26 17:52:15 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_env.h"
 #include <mlx.h>
 #include "ft_printf.h"
+#include "framework_math/fk_math.h"
 #include "framework_math/fk_vector.h"
 #include "framework_collision/fk_collision.h"
-#include <stdlib.h>
 
 #define WIDTH 1224
 #define HEIGHT 780
 
 int		rt_expose_hook(t_env *env)
 {
-	ft_render(*env, (1 / (float)env->resolution.width),
-			(1 / (float)env->resolution.height));
+
+	env->angle = tanf(M_PI * 0.5f * env->fov / 180.);
+	env->ratio = env->resolution.width / (float)env->resolution.height;
+	env->invw = 1 / (float)env->resolution.width;
+	env->invh = 1 / (float)env->resolution.height;
+	env->nb_thread = 4;
+	ft_render(*env);
 	return (0);
 }
 
@@ -53,7 +58,6 @@ int		main(int argc, char **argv)
 				&env.img.sizeline, &env.img.endianness);
 		env.fov = 45;
 		env.pos_absolute_camera = (t_vertex3) { .x = 0, .y = 0, .z = 0 };
-		env.dir_camera = (t_vector3) { .x = 0, .y = 0, .z = 1 };
 		ft_setup_inter(env.fctinter);
 		ft_setup_normal(env.fctnormal);
 		mlx_hook(env.win, 2, (1L << 0), &key_press, &env);
