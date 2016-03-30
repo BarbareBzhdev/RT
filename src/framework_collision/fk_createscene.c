@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 13:12:45 by root              #+#    #+#             */
-/*   Updated: 2016/03/22 13:17:05 by root             ###   ########.fr       */
+/*   Updated: 2016/03/29 08:09:45 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,14 @@ void		fill_arr(t_value val, int idx, t_object *data)
 		new_cone(val, &data[idx]);
 }
 
-void		create_scene(t_value val, t_object *arr)
+void		create_scene(t_value val, t_env *env)
 {
 	static unsigned int def = DEFAULT;
 
-	json_foreach_arr(json_get(val.data.obj, "scene").data.arr, &fill_arr, arr);
-	arr[json_arr_length(json_get(val.data.obj, "scene").data.arr)].type = def;
-	g_depth = (int)json_get(val.data.obj, "depth").data.number;
+	json_foreach_arr(
+			json_get(val.data.obj, "scene").data.arr, &fill_arr, env->arr);
+	env->arr[json_arr_length(
+			json_get(val.data.obj, "scene").data.arr)].type = def;
+	env->depth = (int)json_get(val.data.obj, "depth").data.number;
+	env->sampling = (int)json_get(val.data.obj, "sampling").data.number;
 }

@@ -1,0 +1,27 @@
+
+void		ft_render(t_env env)
+{
+	int				thread;
+	t_env			tmp[8];
+
+	env.xy[1] = 0;
+	thread = 0;
+	while (thread < env->nb_thread)
+		ft_memcpy(&env->tmp[thread++], env, sizeof(t_env));
+	while (env.xy[1] < env.resolution.height)
+	{
+		thread = 0;
+		while ((tmp[thread].xy[1] = ++env.xy[1]) < env.resolution.height)
+		{
+			pthread_create(&th[thread], NULL, ft_routine, &tmp[thread]);
+			if (thread == (env.nb_thread - 1))
+				while (thread > -1)
+				{
+					pthread_join(th[thread], NULL);
+					--thread;
+				}
+			thread++;
+		}
+	}
+	ft_apply_scene(env);
+}

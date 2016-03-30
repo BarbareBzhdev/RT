@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 12:49:55 by root              #+#    #+#             */
-/*   Updated: 2016/03/25 14:04:04 by root             ###   ########.fr       */
+/*   Updated: 2016/03/29 07:56:28 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,17 @@
 #include "framework_light/fk_light.h"
 #include "framework_math/fk_vector.h"
 #include "framework_texture/fk_texture.h"
+#include "framework_math/fk_math.h"
+
+unsigned int		color_dword(t_color3 color)
+{
+	int		col[3];
+
+	col[0] = ABS(color.r * 255);
+	col[1] = ABS(color.g * 255);
+	col[2] = ABS(color.b * 255);
+	return ((col[0] & 0xFF) << 16) | ((col[1] & 0xFF) << 8) | (col[2] & 0xFF);
+}
 
 void			ft_put_pixel_to_image(t_img img, int x, int y, t_color3 color)
 {
@@ -68,7 +79,7 @@ t_color3	process_color(t_object *arr, t_intersect it, t_env env, int depth)
 	else
 		it.color = it.obj->mat.color1;
 	outcolor = fk_finalcolor(arr, it, env);
-	if (it.obj->reflection_index != 0.0 && depth < g_depth)
+	if (it.obj->reflection_index != 0.0 && depth < env.depth)
 	{
 		refl_color = ft_trace_ray(arr,
 				create_reflection(it.ray, it), depth + 1, env);

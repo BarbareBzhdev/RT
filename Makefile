@@ -6,7 +6,7 @@
 #    By: rlambert <rlambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 11:25:08 by rlambert          #+#    #+#              #
-#    Updated: 2016/03/26 16:58:24 by root             ###   ########.fr        #
+#    Updated: 2016/03/29 12:23:27 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ else
 endif
 
 CFLAGS += -Wall -Wextra -Werror
-CFLAGS = -Wall -Wextra -D_REENTRANT
+CFLAGS = -O3 -Wall -Wextra -D_REENTRANT
 
 SRCS =	src/main.c 												\
 		src/ft_env.c
@@ -34,6 +34,7 @@ SRCS += src/parser.c											\
 		src/foreach.c
 
 SRCS += src/framework_math/vector/fk_vcpy.c						\
+		src/framework_math/vector/fk_vmemcheck.c				\
 		src/framework_math/vector/fk_vdiv.c						\
 		src/framework_math/vector/fk_vmul.c						\
 		src/framework_math/vector/fk_vsum.c						\

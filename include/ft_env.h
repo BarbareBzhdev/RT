@@ -6,7 +6,7 @@
 /*   By: mbarbari <mbarbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/01 16:09:24 by mbarbari          #+#    #+#             */
-/*   Updated: 2016/03/26 16:48:17 by root             ###   ########.fr       */
+/*   Updated: 2016/03/30 18:23:18 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include "framework_math/fk_vector.h"
 # include "framework_collision/fk_intersect.h"
 # include "framework_light/fk_normal.h"
+
+#define WIDTH 1224
+#define HEIGHT 780
 
 typedef struct		s_env t_env;
 typedef struct		s_resolution
@@ -33,6 +36,15 @@ typedef struct		s_img
 	int				endianness;
 }					t_img;
 
+typedef struct		s_rout
+{
+	float			x;
+	float			y;
+	int				nthread;
+	t_env			*env;
+	t_color3		color;
+}					t_rout;
+
 struct				s_env
 {
 	void			*mlx;
@@ -41,13 +53,21 @@ struct				s_env
 	t_resolution	resolution;
 	int				fov;
 	int				nb_thread;
+	int				process;
+	int				depth;
+	int				sampling;
+	int				p_alias;
+	t_color3		*matrice;
 	char			*file;
-	int				xy[2];
+	float			xy[2];
 	float			invh;
 	float			invw;
 	float			ratio;
-	float			angle;
+	float			anglex;
+	float			angley;
 	t_object		arr[16];
+	pthread_t		th[16];
+	float			angle;
 	t_vertex3		pos_absolute_camera;
 	t_fctinter		fctinter[DEFAULT];
 	t_fctnormal		fctnormal[DEFAULT];
