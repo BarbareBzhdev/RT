@@ -6,7 +6,7 @@
 /*   By: mbarbari <mbarbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/01 20:34:17 by mbarbari          #+#    #+#             */
-/*   Updated: 2016/03/30 18:23:51 by root             ###   ########.fr       */
+/*   Updated: 2016/03/31 00:14:29 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #include "framework_math/fk_math.h"
 #include "framework_math/fk_vector.h"
 
-t_color3		ft_trace_ray(t_object arr[16], t_ray ray, int depth, t_env env)
+t_color3	ft_trace_ray(t_object arr[NB_OBJ], t_ray ray, int depth, t_env env)
 {
 	t_intersect		inter;
 	int				i;
@@ -67,49 +67,20 @@ t_ray		ray_calc(t_env env, float offsetx, float offsety)
 	return (ray);
 }
 
-static void	*routine_render(void *arg)
-{
-	int			i;
-	t_ray		ray;
-	t_env		*env;
-
-	env = (t_env *)arg;
-	env->xy[0] = -1;
-	while (++env->xy[0] < env->resolution.width)
-	{
-		i = env->xy[1] * WIDTH + env->xy[0];
-		ray = ray_calc(*env, 0, 0);
-		env->matrice[i] = ft_trace_ray(env->arr, ray, 0, *env);
-	}
-	pthread_exit(0);
-}
-
-//static void	*routine_aliasing(void *arg)
-//{
-//	ft_put_pixel_to_image(env->img, (i % WIDTH), floor(i / WIDTH),
-//			sampling(*env, i));
-//}
-
 void		ft_apply_scene(t_env *env)
 {
-	int		i;
-	int		thread;
-	t_env	tmp[16];
+	int				thread;
+	pthread_t		th[16];
 
-	i = -1;
-	//thread = 0;
-	//while (thread < env.nb_thread)
-	//	ft_memcpy(&tmp[thread++], &env, sizeof(t_env));
-	//thread = -1;
-	//i = 0;
-	//while (++thread < 4)
-	//{
-	//	env.p_alias = thread * (HEIGHT / env.nb_thread);
-	//	pthread_create(&env.th[thread], NULL, routine_render, &tmp[thread]);
-	//}
-	while (++i < WIDTH * HEIGHT)
-		ft_put_pixel_to_image(env->img, (i % WIDTH), floor(i / WIDTH),
-			sampling(*env, i));
+	thread = -1;
+	while (++thread < env->nb_thread)
+	{
+		env[thread].p_alias = thread * (WIDTH * (HEIGHT / (float)env->nb_thread));
+		env[thread].max_alias = (thread + 1) * (WIDTH * (HEIGHT / (float)env->nb_thread));
+		pthread_create(&th[thread], NULL, &routine_aliasing, &env[thread]);
+	}
+	while (--thread > -1)
+		pthread_join(th[thread], NULL);
 	mlx_put_image_to_window(env->mlx, env->win, env->img.ptr, 0, 0);
 }
 
@@ -117,27 +88,23 @@ void		ft_render(t_env env)
 {
 	int				thread;
 	t_env			tmp[16];
+	pthread_t		th[16];
 
 	env.xy[1] = -1;
 	thread = 0;
-	ft_bzero(env.arr, sizeof(t_object) * 16);
+	ft_bzero(env.arr, sizeof(t_object) * NB_OBJ);
 	create_scene(parser(env.file), &env);
 	while (thread < env.nb_thread)
 		ft_memcpy(&tmp[thread++], &env, sizeof(t_env));
-	while (env.xy[1] < env.resolution.height)
+	thread = -1;
+	while (++thread < env.nb_thread)
 	{
-		thread = 0;
-		while ((tmp[thread].xy[1] = ++env.xy[1]) < env.resolution.height)
-		{
-			pthread_create(&env.th[thread], NULL, routine_render, &tmp[thread]);
-			if (thread == (env.nb_thread - 1))
-				while (thread > -1)
-				{
-					pthread_join(env.th[thread], NULL);
-					--thread;
-				}
-			thread++;
-		}
+		tmp[thread].p_alias = thread * (WIDTH * (HEIGHT / (float)env.nb_thread));
+		tmp[thread].max_alias = (thread + 1) * (WIDTH * (HEIGHT / (float)env.nb_thread));
+		pthread_create(&th[thread], NULL, &routine_render, &tmp[thread]);
 	}
-	ft_apply_scene(&env);
+	while (--thread > -1)
+		pthread_join(th[thread], NULL);
+	ft_apply_scene(tmp);
+	ft_putendl("End loading\n");
 }

@@ -6,19 +6,21 @@
 /*   By: mbarbari <mbarbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/01 16:09:24 by mbarbari          #+#    #+#             */
-/*   Updated: 2016/03/30 18:23:18 by root             ###   ########.fr       */
+/*   Updated: 2016/03/31 00:05:15 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_ENV_H
 # define FT_ENV_H
 
+# include <sys/stat.h>
 # include "framework_math/fk_vector.h"
 # include "framework_collision/fk_intersect.h"
 # include "framework_light/fk_normal.h"
 
-#define WIDTH 1224
-#define HEIGHT 780
+# define WIDTH 1224
+# define HEIGHT 780
+# define NB_OBJ 25
 
 typedef struct		s_env t_env;
 typedef struct		s_resolution
@@ -57,6 +59,7 @@ struct				s_env
 	int				depth;
 	int				sampling;
 	int				p_alias;
+	int				max_alias;
 	t_color3		*matrice;
 	char			*file;
 	float			xy[2];
@@ -65,12 +68,12 @@ struct				s_env
 	float			ratio;
 	float			anglex;
 	float			angley;
-	t_object		arr[16];
-	pthread_t		th[16];
+	t_object		arr[NB_OBJ];
 	float			angle;
 	t_vertex3		pos_absolute_camera;
 	t_fctinter		fctinter[DEFAULT];
 	t_fctnormal		fctnormal[DEFAULT];
+	time_t			oldtime;
 };
 
 void		ft_setup_inter(t_fctinter inter[DEFAULT]);
