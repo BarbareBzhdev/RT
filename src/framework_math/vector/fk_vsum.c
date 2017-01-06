@@ -16,4 +16,3 @@ t_vector3		vector_sum(t_vector3 u, t_vector3 v)
 {
 	return ((t_vector3) { .x = u.x + v.x, .y = u.y + v.y, .z = u.z + v.z });
 }
-

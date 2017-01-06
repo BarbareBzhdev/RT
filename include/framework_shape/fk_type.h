@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   fk_type.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roblabla <robinlambertz+dev@gmail.c>       +#+  +:+       +#+        */
+/*   By: roblabla <rlambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/02 22:59:59 by roblabla          #+#    #+#             */
 /*   Updated: 2015/11/27 22:15:27 by mbarbari         ###   ########.fr       */
@@ -19,7 +19,8 @@ typedef enum		e_type
 	PLANE,
 	CYLINDER,
 	CONE,
-	SPOTLIGHT,
+	PARABOLOID,
+	TRIANGLE,
 	DEFAULT
 }					t_type;
 

@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "framework_shape/fk_cone.h"
 #include "framework_math/fk_math.h"
 
@@ -34,7 +33,7 @@ float			compute_len(float a, float b, float c)
 	return (-1);
 }
 
-t_bool			intersect_cone(t_ray ray, t_cone* obj, float *t)
+t_bool			intersect_cone(t_ray ray, t_cone *obj, float *t)
 {
 	float		a;
 	float		b;

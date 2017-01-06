@@ -15,7 +15,8 @@
 
 # include "framework_math/fk_vector.h"
 # include "framework_shape/fk_plan.h"
+# include "framework_collision/fk_intersect.h"
 
-t_vector3		normal_plan(t_ray ray, t_vector3 inter, t_plan *obj);
+void		normal_plan(t_intersect *inter, t_plan *obj);
 
 #endif

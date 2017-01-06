@@ -16,4 +16,3 @@ float			vector_dotproduct(t_vector3 u, t_vector3 v)
 {
 	return (u.x * v.x + u.y * v.y + u.z * v.z);
 }
-

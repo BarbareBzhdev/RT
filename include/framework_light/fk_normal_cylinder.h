@@ -15,7 +15,8 @@
 
 # include "framework_math/fk_vector.h"
 # include "framework_shape/fk_cylinder.h"
+# include "framework_collision/fk_intersect.h"
 
-t_vector3		normal_cylinder(t_ray ray, t_vector3 inter, t_cylinder *obj);
+void		normal_cylinder(t_intersect *inter, t_cylinder *obj);
 
 #endif

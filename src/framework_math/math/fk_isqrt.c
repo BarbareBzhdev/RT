@@ -19,11 +19,10 @@ float	fk_isqrt(float nbr)
 	float				y;
 
 	x1 = nbr * 0.5F;
-	y  = nbr;
-	i  = * ( long * ) &y;
-	i  = 0x5f375a86 - ( i >> 1 );
-	y  = * ( float * ) &i;
-	y  = y * ( 1.5F - ( x1 * y * y ) );
-
+	y = nbr;
+	i = *(long *)&y;
+	i = 0x5f375a86 - (i >> 1);
+	y = *(float *)&i;
+	y = y * (1.5F - (x1 * y * y));
 	return (y);
 }

@@ -15,7 +15,8 @@
 
 # include "framework_math/fk_vector.h"
 # include "framework_shape/fk_sphere.h"
+# include "framework_collision/fk_intersect.h"
 
-t_vector3		normal_sphere(t_ray ray, t_vector3 inter, t_sphere *obj);
+void		normal_sphere(t_intersect *inter, t_sphere *obj);
 
 #endif

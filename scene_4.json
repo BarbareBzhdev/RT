@@ -1,0 +1,259 @@
+{
+  "depth":4,
+  "sampling":4,
+  "pos_camera": {
+        "x": 0,
+        "y": 0,
+        "z": -1
+      },
+  "scene":
+  [
+    {
+      "type":"SPHERE",
+      "color1": {
+        "red": 12,
+        "green": 132,
+        "blue": 116
+      },
+      "color2": {
+        "red": 12,
+        "green": 232,
+        "blue": 116
+      },
+      "color3": {
+        "red": 12,
+        "green": 232,
+        "blue": 116
+      },
+      "pos":{
+        "x":0,
+        "y":0,
+        "z":10
+      },
+      "dir": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "reflection_index": 0.00,
+      "refraction_index": 0.0,
+      "ambient": 0.5,
+      "diffuse": 0.5,
+      "specular":0.5,
+      "light": false,
+      "texture": "none",
+      "datatexture": {
+        "v0": 0.085,
+        "v1": 0.18,
+        "v2": 0.22
+      },
+      "radius": 0.6
+    },
+    {
+      "type":"CYLINDER",
+      "color1": {
+        "red": 13,
+        "green": 201,
+        "blue": 255
+      },
+      "color2": {
+        "red": 13,
+        "green": 201,
+        "blue": 255
+      },
+      "color3": {
+        "red": 13,
+        "green": 201,
+        "blue": 255
+      },
+      "pos":{
+        "x":-4,
+        "y":0,
+        "z":20
+      },
+      "dir": {
+        "x": 1.1,
+        "y": 1,
+        "z": 0
+      },
+      "reflection_index": 0.00,
+      "refraction_index": 0.0,
+      "ambient": 0.5,
+      "diffuse": 0.5,
+      "specular":0.5,
+      "light": false,
+      "texture": "none",
+      "datatexture": {
+        "v0": 0.085,
+        "v1": 0.18,
+        "v2": 0.22
+      },
+      "radius": 0.50
+    },
+    {
+      "type":"CONE",
+      "color1": {
+        "red": 255,
+        "green": 139,
+        "blue": 24
+      },
+      "color2": {
+        "red": 255,
+        "green": 139,
+        "blue": 24
+      },
+      "color3": {
+        "red": 255,
+        "green": 139,
+        "blue": 24
+      },
+      "pos":{
+        "x":6,
+        "y":0,
+        "z":15
+      },
+      "dir": {
+        "x": 1,
+        "y": -1,
+        "z": 0
+      },
+      "reflection_index": 0.00,
+      "refraction_index": 0.0,
+      "ambient": 0.5,
+      "diffuse": 0.5,
+      "specular":0.5,
+      "light": false,
+      "texture": "none",
+      "datatexture": {
+        "v0": 0.085,
+        "v1": 0.18,
+        "v2": 0.22
+      },
+      "radius": 0.50,
+      "height": 1.5
+    },
+    {
+      "comment":"sol",
+      "type": "PLANE",
+      "color1": {
+        "red":200, 
+        "green":255,
+        "blue":0
+      },
+      "color2": {
+        "red":200, 
+        "green":255,
+        "blue":0
+      },
+      "color3": {
+        "red":200, 
+        "green":255,
+        "blue":0
+      },
+      "pos": {
+        "x":0,
+        "y":-10,
+        "z":0
+      },
+      "dir": {
+        "x": 0,
+        "y": 1,
+        "z": 0
+      },
+      "reflection_index": 0.00,
+      "refraction_index": 0.0,
+      "ambient": 0.5,
+      "diffuse": 0.5,
+      "specular":0.5,
+      "light": false,
+      "texture": "none",
+      "datatexture": {
+        "v0": 0.085,
+        "v1": 0.18,
+        "v2": 0.22
+      }
+	},
+   {
+      "comment":"plafond",
+      "type": "PLANE",
+      "color1": {
+        "red":91, 
+        "green":255,
+        "blue":0
+      },
+      "color2": {
+        "red":91, 
+        "green":255,
+        "blue":0
+      },
+      "color3": {
+        "red":91, 
+        "green":255,
+        "blue":0
+      },
+      "pos": {
+        "x":0,
+        "y":10,
+        "z":0
+      },
+      "dir": {
+        "x": 0,
+        "y": -1,
+        "z": 0
+      },
+      "reflection_index": 0.0,
+      "refraction_index": 0.0,
+      "ambient": 0.5,
+      "diffuse": 0.5,
+      "specular":0.5,
+      "light": false,
+      "texture": "none",
+      "datatexture": {
+        "v0": 0.085,
+        "v1": 0.18,
+        "v2": 0.22
+      }
+  },
+  {
+      "type": "SPHERE",
+      "color1": {
+        "red": 250,
+        "green": 200,
+        "blue": 250
+      },
+      "color2": {
+        "red": 250,
+        "green": 200,
+        "blue": 250
+      },
+      "color3": {
+        "red": 250,
+        "green": 200,
+        "blue": 250
+      },
+      "pos": {
+        "x": 0,
+        "y": 1,
+        "z": 0
+      },
+     "reflection_index": 0.00,
+      "refraction_index": 0.0,
+      "ambient": 0.5,
+      "diffuse": 0.5,
+      "specular":0.5,
+      "light": true,
+      "texture": "none",
+      "datatexture": {
+        "v0": 0.085,
+        "v1": 0.18,
+        "v2": 0.22
+      },
+      "dir": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "radius":0.00
+    }
+  ]
+}

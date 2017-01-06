@@ -16,4 +16,3 @@ t_vector3		vector_sub(t_vector3 u, float r)
 {
 	return ((t_vector3) { .x = u.x - r, .y = u.y - r, .z = u.z - r });
 }
-

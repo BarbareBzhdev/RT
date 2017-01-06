@@ -6,14 +6,14 @@
 /*   By: barbare <barbare@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/28 12:48:34 by mbarbari          #+#    #+#             */
-/*   Updated: 2016/02/10 14:52:16 by barbare          ###   ########.fr       */
+/*   Updated: 2016/04/01 17:29:30 by mbarbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FK_VECTOR_H
 # define FK_VECTOR_H
 
-# include "stuff.noth"
+# include "stuff.t"
 
 typedef union u_vec	t_vec;
 typedef t_vec	t_vector3;
@@ -41,6 +41,7 @@ union			u_vec
 ** fk_vectoriel_transformation.c
 ** ****************************************************************************
 */
+int				vector_check(t_vector3 v, t_vector3 u);
 t_vector3		vector_new(float x1, float y1, float z1);
 t_vector3		vector_cpy(t_vector3 u);
 t_vector3		vector_unit(t_vector3 u);

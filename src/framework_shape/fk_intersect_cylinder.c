@@ -13,8 +13,7 @@
 #include "framework_shape/fk_cylinder.h"
 #include "framework_math/fk_math.h"
 
-
-t_bool			intersect_cylinder(t_ray ray, t_cylinder* obj, float *t)
+t_bool			intersect_cylinder(t_ray ray, t_cylinder *obj, float *t)
 {
 	float		a;
 	float		b;
@@ -23,9 +22,12 @@ t_bool			intersect_cylinder(t_ray ray, t_cylinder* obj, float *t)
 	t_vector3	etoc;
 
 	etoc = vector_substract(ray.pos, obj->pos);
-	a = vector_dotproduct(ray.dir, ray.dir) - SQUARE(vector_dotproduct(ray.dir, obj->dir));
-	b = (vector_dotproduct(ray.dir, etoc) - vector_dotproduct(ray.dir, obj->dir) * vector_dotproduct(etoc, obj->dir))* 2;
-	c = vector_dotproduct(etoc, etoc) - SQUARE(vector_dotproduct(etoc, obj->dir)) - (obj->radius * obj->radius);
+	a = vector_dotproduct(ray.dir, ray.dir) -
+		SQUARE(vector_dotproduct(ray.dir, obj->dir));
+	b = (vector_dotproduct(ray.dir, etoc) - vector_dotproduct(ray.dir, obj->dir)
+		* vector_dotproduct(etoc, obj->dir)) * 2;
+	c = vector_dotproduct(etoc, etoc) -
+		SQUARE(vector_dotproduct(etoc, obj->dir)) - (obj->radius * obj->radius);
 	d = b * b - 4 * a * c;
 	if (d > 0.)
 	{

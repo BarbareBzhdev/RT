@@ -13,6 +13,6 @@
 #ifndef FK_NORMAL_H
 # define FK_NORMAL_H
 
-typedef t_vector3 (*t_fctnormal)(t_ray ray, t_vector3 pos, void *obj);
+typedef void	(*t_fctnormal)(t_intersect *inter, void *obj);
 
 #endif

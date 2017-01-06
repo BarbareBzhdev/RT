@@ -17,6 +17,8 @@
 #include "framework_light/fk_normal_sphere.h"
 #include "framework_light/fk_normal_cylinder.h"
 #include "framework_light/fk_normal_cone.h"
+#include "framework_light/fk_normal_paraboloid.h"
+#include "framework_light/fk_normal_triangle.h"
 
 void		ft_setup_inter(t_fctinter inter[DEFAULT])
 {
@@ -24,6 +26,8 @@ void		ft_setup_inter(t_fctinter inter[DEFAULT])
 	inter[PLANE] = (t_fctinter)&intersect_plan;
 	inter[CYLINDER] = (t_fctinter)&intersect_cylinder;
 	inter[CONE] = (t_fctinter)&intersect_cone;
+	inter[PARABOLOID] = (t_fctinter)&intersect_paraboloid;
+	inter[TRIANGLE] = (t_fctinter)&intersect_triangle;
 	inter[DEFAULT] = NULL;
 }
 
@@ -33,5 +37,7 @@ void		ft_setup_normal(t_fctnormal normal[DEFAULT])
 	normal[PLANE] = (t_fctnormal)&normal_plan;
 	normal[CYLINDER] = (t_fctnormal)&normal_cylinder;
 	normal[CONE] = (t_fctnormal)&normal_cone;
+	normal[PARABOLOID] = (t_fctnormal)&normal_paraboloid;
+	normal[TRIANGLE] = (t_fctnormal)&normal_triangle;
 	normal[DEFAULT] = NULL;
 }
